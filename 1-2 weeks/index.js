@@ -49,30 +49,6 @@ console.log(checkNum(3));
 console.log(checkNum(-4));
 console.log(checkNum(0));
 
-// Node.js
-// const readline = require("readline");
-
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// rl.question("Enter a number: ", (input) => {
-//   const num = parseFloat(input);
-
-//   if (isNaN(num)) {
-//     console.log("Please enter a valid number.");
-//   } else if (num > 0) {
-//     console.log("The number is positive.");
-//   } else if (num < 0) {
-//     console.log("The number is negative.");
-//   } else {
-//     console.log("The number is zero.");
-//   }
-
-//   rl.close();
-// });
-
 // closures
 // 🔹 What Are JavaScript Closures?
 // A closure in JavaScript is a function that remembers the variables from its outer scope even after the outer function has finished executing.
@@ -268,3 +244,162 @@ console.log(isLeapYear(1404));
 console.log(isLeapYear(2025));
 
 //
+
+// Triangle Validity
+// Given three sides of a triangle, check if they form a valid triangle.
+// The sum of any two sides must be greater than the third.
+
+function isTriangleValid(side1, side2, side3) {
+  if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+isTriangleValid(5, 6, 7); // valid
+isTriangleValid(10, 15, 25); // valid
+
+//
+
+// Speeding Ticket Calculator
+// Speed limit = 60 km/h.
+// - If a driver goes above the speed limit, they get a fine.
+// - If they are driving over 100 km/h, they get double the fine.
+// - Implement a program that takes speed as input and determines the fine.
+
+function speedTicketCalculator(speed) {
+  let fine = null;
+  const speedLimit = 60;
+  const speedMax = 100;
+
+  if (speed < speedLimit) {
+    fine = 0;
+  } else if (speed <= speedMax) {
+    fine = 100;
+  } else {
+    fine = 100 * 2;
+  }
+
+  return fine;
+}
+
+console.log(speedTicketCalculator(90));
+console.log(speedTicketCalculator(110));
+console.log(speedTicketCalculator(310));
+console.log(speedTicketCalculator(50));
+
+//
+
+// ATM Withdrawal
+// A person wants to withdraw money from an ATM.
+// If the withdrawal amount is a multiple of 10, allow withdrawal.
+// If not, print an error message.
+// If the account balance is less than the withdrawal amount, print "Insufficient Funds".
+
+function atmWithdrawal(amount, accountBalance) {
+  if (amount % 10 === 0 && accountBalance > amount) {
+    return "Withdrawal successful.";
+  } else if (accountBalance < amount) {
+    return "Insufficient Funds";
+  } else {
+    return "Error: Withdrawal amount must be a multiple of 10.";
+  }
+}
+
+console.log(atmWithdrawal(50, 300));
+console.log(atmWithdrawal(45, 300));
+console.log(atmWithdrawal(350, 300));
+
+//
+
+// Body Mass Index (BMI) Calculator
+// Given weight (kg) and height (m), calculate BMI using BMI = weight / (height * height).
+// Categorize it into:
+// Underweight: BMI < 18.5
+// Normal weight: 18.5 ≤ BMI < 25
+// Overweight: 25 ≤ BMI < 30
+// Obese: BMI ≥ 30
+
+function bmiCalculator(weight, height) {
+  const BMI = weight / (height * height);
+  console.log(BMI);
+
+  let result = "";
+
+  if (BMI < 18.5) {
+    result = "Underweight";
+  } else if (BMI >= 18.5 && BMI < 25) {
+    result = "Normal weight";
+  } else if (BMI >= 25 && BMI < 30) {
+    result = "Overweight";
+  } else {
+    result = "Obese";
+  }
+
+  return result;
+}
+
+console.log(bmiCalculator(55, 1.65));
+console.log(bmiCalculator(80, 1.65));
+console.log(bmiCalculator(90, 1.65));
+
+//
+
+// Electricity Bill Calculator
+// Units Consumed:
+// Up to 100 units: $0.50 per unit
+// 101 to 200 units: $0.75 per unit
+// 201 to 500 units: $1.20 per unit
+// Above 500 units: $1.50 per unit
+// Write a program that calculates the total electricity bill.
+
+function electricityBill(units) {
+  let bill = 0;
+
+  if (units > 500) {
+    bill += (units - 500) * 1.5;
+    units = 500;
+  }
+  if (units > 200) {
+    bill += (units - 200) * 1.2;
+    units = 200;
+  }
+  if (units > 100) {
+    bill += (units - 100) * 0.75;
+    units = 100;
+  }
+  bill += units * 0.5;
+
+  return `$${bill.toFixed(2)}`;
+}
+
+// Test cases
+console.log(electricityBill(50)); // $25.00
+console.log(electricityBill(150)); // $87.50
+console.log(electricityBill(300)); // $295.00
+
+//
+
+// Password Strength Checker
+// A strong password must:
+// Be at least 8 characters long.
+// Contain at least one uppercase letter, one lowercase letter, and one number.
+// Write a program that checks if a given password is strong or weak.
+
+function passwordChecker(password) {
+  if (
+    password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[a-z]/.test(password) &&
+    /[0-9]/.test(password)
+  ) {
+    return "Strong";
+  } else {
+    return "Weak";
+  }
+}
+
+console.log(passwordChecker("12wsIX2ovS"));
+console.log(passwordChecker("12wsdw2oc"));
+console.log(passwordChecker("WERRwsdwoc"));
