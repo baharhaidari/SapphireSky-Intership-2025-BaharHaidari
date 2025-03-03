@@ -49,30 +49,6 @@ console.log(checkNum(3));
 console.log(checkNum(-4));
 console.log(checkNum(0));
 
-// Node.js
-// const readline = require("readline");
-
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// rl.question("Enter a number: ", (input) => {
-//   const num = parseFloat(input);
-
-//   if (isNaN(num)) {
-//     console.log("Please enter a valid number.");
-//   } else if (num > 0) {
-//     console.log("The number is positive.");
-//   } else if (num < 0) {
-//     console.log("The number is negative.");
-//   } else {
-//     console.log("The number is zero.");
-//   }
-
-//   rl.close();
-// });
-
 // closures
 // 🔹 What Are JavaScript Closures?
 // A closure in JavaScript is a function that remembers the variables from its outer scope even after the outer function has finished executing.
@@ -268,3 +244,4 @@ console.log(isLeapYear(1404));
 console.log(isLeapYear(2025));
 
 //
+
