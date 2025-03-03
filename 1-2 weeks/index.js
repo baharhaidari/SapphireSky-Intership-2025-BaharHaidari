@@ -403,3 +403,230 @@ function passwordChecker(password) {
 console.log(passwordChecker("12wsIX2ovS"));
 console.log(passwordChecker("12wsdw2oc"));
 console.log(passwordChecker("WERRwsdwoc"));
+
+// Loops
+
+// Print Numbers from 1 to 100
+// Write a for loop that prints numbers from 1 to 100.
+
+function printNum() {
+  let num = "";
+
+  for (let i = 1; i <= 100; i++) {
+    num += i + " ";
+  }
+
+  return num;
+}
+
+console.log(printNum());
+
+//
+
+// Sum of First N Natural Numbers
+// Write a program that takes N as input and calculates the sum of the first N natural numbers.
+
+function sumOfNaturalNumbers(N) {
+  let sum = null;
+
+  for (let i = 0; i <= N; i++) {
+    sum += i;
+  }
+
+  return sum;
+}
+
+console.log(sumOfNaturalNumbers(5));
+
+//
+
+// Multiplication Table
+// Ask the user for a number and print its multiplication table up to 10.
+
+// solution 1
+function multiplicationTable(num) {
+  let targetNum = 10;
+  let multiplicationArr = [];
+
+  for (let i = 1; i <= targetNum; i++) {
+    let res = num * i;
+    multiplicationArr.push(res);
+  }
+
+  return multiplicationArr;
+}
+
+console.log(multiplicationTable(2));
+
+// solution 2
+function multiplicationTable2(num) {
+  for (let i = 1; i <= 10; i++) {
+    console.log(`${i} * ${num} = ${num * i}`);
+  }
+}
+
+multiplicationTable2(2);
+
+// Reverse a Number
+// Given an integer, reverse its digits. (Example: 1234 → 4321)
+
+function reverseNumber(num) {
+  let reversedNum = 0;
+
+  while (num > 0) {
+    // Get the last digit of the number
+    let digit = num % 10;
+    // console.log(digit);
+
+    // Add the digit to the reversed number (shift left by multiplying by 10)
+    reversedNum = reversedNum * 10 + digit;
+    // console.log(reversedNum);
+
+    // Remove the last digit from the number
+    num = Math.floor(num / 10);
+    // console.log(num);
+  }
+
+  return reversedNum;
+}
+
+console.log(reverseNumber(1234)); // Output: 4321
+// console.log(reverseNumber(567)); // Output: -765
+
+//
+
+// Count Digits in a Number
+// Take a number as input and count how many digits it has.
+
+function countDigits(number) {
+  let counter = 0;
+
+  if (number === 0) return 1;
+
+  while (number > 0) {
+    number = Math.floor(number / 10); // Remove last digit
+    counter++;
+  }
+
+  return counter;
+}
+
+// console.log(countDigits(10));
+// console.log(countDigits(3456));
+
+//
+
+// Check for Prime Number
+// Write a program that takes a number as input and checks if it is prime.
+
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+
+  const sqrtNum = Math.floor(Math.sqrt(num));
+
+  // console.log(sqrtNum);
+
+  for (let i = 2; i <= sqrtNum; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isPrime(1)); // false
+console.log(isPrime(2)); // true
+console.log(isPrime(29)); // true
+console.log(isPrime(30)); // false
+
+//
+
+// Factorial of a Number
+// Implement a function that calculates the factorial of a number using a loop.
+
+function factorial(num) {
+  let result = 1;
+
+  for (let i = 1; i <= num; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+console.log(factorial(5));
+console.log(factorial(7));
+
+//
+
+// Find Largest and Smallest in a List
+// Given an array of numbers, find the largest and smallest numbers using a loop.
+
+function findLargestAndSmallestNum(arr) {
+  let smallestNum = arr[0];
+  let largestNum = arr[0];
+
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] < smallestNum) {
+      smallestNum = arr[i];
+    }
+
+    if (arr[i] > largestNum) {
+      largestNum = arr[i];
+    }
+  }
+
+  return {
+    smallestNum,
+    largestNum,
+  };
+}
+
+console.log(findLargestAndSmallestNum([1, 4, 2, 3]));
+
+//
+
+// Fibonacci Sequence
+// Print the first N Fibonacci numbers using a loop.
+
+function findFibonacciSequence(N) {
+  let first = 0;
+  let second = 1;
+  let fibonacciArr = [first, second];
+
+  for (let i = 2; i < N; i++) {
+    let next = first + second;
+    fibonacciArr.push(next);
+
+    first = second;
+    second = next;
+  }
+
+  return fibonacciArr;
+}
+
+console.log(findFibonacciSequence(10));
+console.log(findFibonacciSequence(38));
+
+//
+
+// Palindrome Checker
+// Write a program that checks if a given number is a palindrome (Example: 121 → True, 123 → False).
+
+function isPalindrome(num) {
+  let reversedNum = reverseNumber(num);
+
+  if (reversedNum == num) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isPalindrome(123));
+console.log(isPalindrome(121));
+console.log(isPalindrome(1331));
+console.log(isPalindrome(456));
