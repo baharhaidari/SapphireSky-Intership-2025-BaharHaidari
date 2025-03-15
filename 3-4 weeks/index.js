@@ -295,3 +295,42 @@ console.log(areArraysEqual([1, 2, 3], [1, 3, 2]));
 console.log(areArraysEqual(["a", "b", "c"], ["a", "b", "c"]));
 console.log(areArraysEqual([1, 2, 3], [3, 2, 1]));
 console.log(areArraysEqual([1, 2, 3], [1, 2, 4, 5]));
+
+//
+
+// Implement a function to find the subarray with the maximum sum (Kadane’s Algorithm).
+
+//
+
+// Write a function to rearrange an array such that even numbers appear before odd numbers.
+
+function rearrangeEvenOdd(arr) {
+  let left = 0,
+    right = arr.length - 1;
+
+  while (left < right) {
+    // Move left forward if it's already even
+    while (left < right && arr[left] % 2 === 0) {
+      left++;
+    }
+
+    // Move right backward if it's already odd
+    while (left < right && arr[right] % 2 !== 0) {
+      right--;
+    }
+
+    // Swap if left is odd and right is even
+    if (left < right) {
+      let temp = arr[left];
+      arr[left] = arr[right];
+      arr[right] = temp;
+
+      left++;
+      right--;
+    }
+  }
+
+  return arr;
+}
+
+console.log(rearrangeEvenOdd([3, 1, 2, 4, 7, 6, 9, 8]));
