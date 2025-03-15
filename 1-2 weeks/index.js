@@ -631,4 +631,292 @@ console.log(isPalindrome(121));
 console.log(isPalindrome(1331));
 console.log(isPalindrome(456));
 
+// Functions Section
+
+// Convert Celsius to Fahrenheit
+// Write a function celsiusToFahrenheit(celsius) that converts a temperature from Celsius to Fahrenheit using the formula:
+// F=(C×95)+32F = (C \times \frac{9}{5}) + 32F=(C×59​)+32
+
+function celsiusToFahrenheit(celsius) {
+  let result = (celsius * 9) / 5 + 32;
+  return result;
+}
+
+console.log(celsiusToFahrenheit(0));
+console.log(celsiusToFahrenheit(100));
+
 //
+
+// Find the Maximum of Three Numbers
+// Implement a function maxOfThree(a, b, c) that returns the largest of three numbers.
+
+function findMax(a, b, c) {
+  let max = a;
+
+  if (b > max) {
+    max = b;
+  }
+  if (c > max) {
+    max = c;
+  }
+
+  return max;
+}
+
+console.log(findMax(1, 2, 4));
+console.log(findMax(1, 5, 2));
+
+//
+
+// Check Even or Odd
+// Create a function isEven(number) that returns true if the number is even and false otherwise.
+
+function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isEven(2));
+console.log(isEven(5));
+
+//
+
+// Count Vowels in a String
+// Write a function countVowels(str) that takes a string and returns the number of vowels in it.
+
+function countVowels(str) {
+  let count = 0;
+  const vowels = "aeiou";
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 0; j < vowels.length; j++) {
+      if (str[i] === vowels[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("hello"));
+console.log(countVowels("aeiou"));
+
+//
+
+// Reverse a String
+// Implement reverseString(str), which takes a string and returns it reversed.
+// Example: "hello" → "olleh"
+
+function reverseString(str) {
+  let reversed = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+
+  return reversed;
+}
+
+console.log(reverseString("hello"));
+console.log(reverseString("sapphire sky"));
+
+//
+
+// Check if a Number is Prime
+// Write a function isPrime(n) that returns true if n is a prime number and false otherwise.
+
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+
+  const sqrtNum = Math.floor(Math.sqrt(num));
+
+  // console.log(sqrtNum);
+
+  for (let i = 2; i <= sqrtNum; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isPrime(1));
+console.log(isPrime(2));
+
+//
+
+// Calculate Factorial Using Recursion
+// Implement factorial(n), which calculates the factorial of n using recursion.
+
+function calculateFactorial(n) {
+  if (n === 1 || n === 0) {
+    return 1;
+  }
+
+  return n * calculateFactorial(n - 1);
+}
+
+console.log(calculateFactorial(5));
+console.log(calculateFactorial(3));
+
+//
+
+// Find the nth Fibonacci Number
+// Implement fibonacci(n), which returns the nth Fibonacci number.
+
+function fibonacci(n) {
+  // Base cases
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(5));
+console.log(fibonacci(7));
+console.log(fibonacci(0));
+
+//
+
+// Check if a String is a Palindrome
+// Write a function isPalindrome(str) that returns true if the given string is a palindrome.
+// Example: "racecar" → true, "hello" → false
+
+function isPalindrome(str) {
+  let reversedString = reverseString(str);
+
+  if (reversedString === str) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isPalindrome("hello"));
+console.log(isPalindrome("racecar"));
+
+//
+
+// Generate Pascal’s Triangle
+// Implement pascalTriangle(rows), which prints Pascal’s Triangle up to rows rows.
+
+function pascalTriangle(rows) {
+  let triangle = [];
+
+  for (let row = 0; row < rows; row++) {
+    let currentRow = [];
+
+    for (let col = 0; col <= row; col++) {
+      if (col === 0 || col === row) {
+        currentRow.push(1);
+      } else {
+        currentRow.push(triangle[row - 1][col - 1] + triangle[row - 1][col]);
+      }
+    }
+
+    triangle.push(currentRow);
+  }
+
+  // Find the maximum length of the last row for centering
+  let maxLength = triangle[rows - 1].join(" ").length;
+
+  // Print the triangle with centering
+  for (let i = 0; i < rows; i++) {
+    let rowStr = triangle[i].join(" ");
+    let padding = " ".repeat((maxLength - rowStr.length) / 2);
+    console.log(padding + rowStr);
+  }
+}
+
+pascalTriangle(5);
+
+// Switch-Case Section
+
+// Day of the Week
+// Write a program that takes an integer (1-7) as input.
+// Use switch to print the corresponding day of the week.
+// 1 → "Monday"
+// 2 → "Tuesday"
+// 7 → "Sunday"
+
+function daysOfWeek(n) {
+  let day;
+
+  switch (n) {
+    case 1:
+      day = "Saturay";
+      break;
+    case 2:
+      day = "Sunday";
+      break;
+    case 3:
+      day = "Monday";
+      break;
+    case 4:
+      day = "Tuesday";
+      break;
+    case 5:
+      day = "Wednesday";
+      break;
+    case 6:
+      day = "Thursday";
+      break;
+    default:
+      day = "Friday";
+  }
+
+  return day;
+}
+
+console.log(daysOfWeek(2));
+console.log(daysOfWeek(5));
+
+//
+
+// Simple Calculator
+// Take two numbers and an operator (+, -, *, /).
+// Use switch to perform the correct operation and return the result.
+
+function calculator(num1, num2, operator) {
+  let result = 0;
+
+  switch (operator) {
+    case "+":
+      result = num1 + num2;
+      break;
+
+    case "-":
+      result = num1 - num2;
+      break;
+
+    case "/":
+      result = num1 / num2;
+      break;
+
+    case "*":
+      result = num1 * num2;
+      break;
+
+    default:
+      result = "Invalid Operator";
+      break;
+  }
+
+  return result;
+}
+
+console.log(calculator(4, 2, "+"));
+console.log(calculator(4, 2, "-"));
+console.log(calculator(4, 2, "/"));
+console.log(calculator(4, 2, "*"));
