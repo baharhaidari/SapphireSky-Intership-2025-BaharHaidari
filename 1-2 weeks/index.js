@@ -920,3 +920,246 @@ console.log(calculator(4, 2, "+"));
 console.log(calculator(4, 2, "-"));
 console.log(calculator(4, 2, "/"));
 console.log(calculator(4, 2, "*"));
+
+//
+
+// Traffic Light System
+// Take a traffic light color ("red", "yellow", "green") as input.
+// Use switch to print the corresponding action:
+// "Red" → "Stop"
+// "Yellow" → "Slow Down"
+// "Green" → "Go"
+
+function trafficLightSystem(color) {
+  let instruction = "";
+
+  switch (color) {
+    case "red":
+      instruction = "Stop";
+      break;
+
+    case "yellow":
+      instruction = "Slow Down";
+      break;
+
+    default:
+      instruction = "Go";
+      break;
+  }
+
+  return instruction;
+}
+
+console.log(trafficLightSystem("red"));
+console.log(trafficLightSystem("green"));
+
+//
+
+// Month Name and Days
+// Input a number (1-12) representing a month.
+// Use switch to print the name of the month and how many days it has.
+
+function monthNameAndDays(month) {
+  let result = "";
+
+  switch (month) {
+    case 1:
+      result = "January - 31 days";
+      break;
+    case 2:
+      result = "February - 28 or 29 days (leap year)";
+      break;
+    case 3:
+      result = "March - 31 days";
+      break;
+    case 4:
+      result = "April - 30 days";
+      break;
+    case 5:
+      result = "May - 31 days";
+      break;
+    case 6:
+      result = "June - 30 days";
+      break;
+    case 7:
+      result = "July - 31 days";
+      break;
+    case 8:
+      result = "August - 31 days";
+      break;
+    case 9:
+      result = "September - 30 days";
+      break;
+    case 10:
+      result = "October - 31 days";
+      break;
+    case 11:
+      result = "November - 30 days";
+      break;
+    case 12:
+      result = "December - 31 days";
+      break;
+    default:
+      result = "Invalid month. Please enter a number between 1 and 12.";
+  }
+
+  return result;
+}
+
+console.log(monthNameAndDays(2));
+console.log(monthNameAndDays(6));
+console.log(monthNameAndDays(13));
+
+//
+
+// Check for Vowel or Consonant
+// Take a letter as input.
+// Use switch to determine whether it is a vowel or a consonant.
+
+function checkVowel(letter) {
+  switch (letter) {
+    case "a":
+    case "e":
+    case "i":
+    case "o":
+    case "u":
+      console.log("Vowel");
+      break;
+
+    default:
+      console.log("Consonant");
+  }
+}
+
+checkVowel("a");
+checkVowel("b");
+checkVowel("e");
+
+//
+
+// Student Grade System
+// Take a student's score (0-100).
+// Use switch to assign a letter grade (A, B, C, D, F).
+
+function studentGrade(score) {
+  let grade = "";
+
+  switch (true) {
+    case score > 100 || score < 0:
+      grade = "Please enter a valid score.";
+      break;
+
+    case score >= 90:
+      grade = "A";
+      break;
+
+    case score >= 80:
+      grade = "B";
+      break;
+
+    case score >= 70:
+      grade = "C";
+      break;
+
+    case score >= 60:
+      grade = "D";
+      break;
+
+    default:
+      grade = "F";
+  }
+
+  return grade;
+}
+
+console.log(studentGrade(10));
+console.log(studentGrade(95));
+console.log(studentGrade(74));
+
+//
+
+// Currency Converter
+// Take a currency code ("USD", "EUR", "INR", "JPY").
+// Use switch to print the conversion rate relative to a base currency (e.g., USD).
+
+function currencyConverter(amount, currency) {
+  let conversionRate;
+
+  switch (currency) {
+    case "USD":
+      conversionRate = 1; // 1 USD to USD
+      break;
+    case "EUR":
+      conversionRate = 0.92; // 1 USD to EUR
+      break;
+    case "INR":
+      conversionRate = 83.2; // 1 USD to INR
+      break;
+    case "JPY":
+      conversionRate = 149.3; // 1 USD to JPY
+      break;
+    default:
+      return "Invalid currency code. Please use 'USD', 'EUR', 'INR', or 'JPY'.";
+  }
+
+  let convertedAmount = amount * conversionRate;
+  return `${amount} USD = ${convertedAmount.toFixed(2)} ${currency}`;
+}
+
+console.log(currencyConverter(100, "USD"));
+console.log(currencyConverter(100, "EUR"));
+console.log(currencyConverter(100, "INR"));
+console.log(currencyConverter(100, "JPY"));
+console.log(currencyConverter(100, "GBP"));
+
+//
+
+// Determine Season by Month
+// Take an integer (1-12) as input.
+// Use switch to print the corresponding season:
+// 12, 1, 2 → Winter
+// 3, 4, 5 → Spring
+// 6, 7, 8 → Summer
+// 9, 10, 11 → Fall
+
+function determineSeason(month) {
+  let season = "";
+
+  switch (month) {
+    case 12:
+    case 1:
+    case 2:
+      season = "Winter";
+      break;
+
+    case 3:
+    case 4:
+    case 5:
+      season = "Spring";
+      break;
+
+    case 6:
+    case 7:
+    case 8:
+      season = "Summer";
+      break;
+
+    case 9:
+    case 10:
+    case 11:
+      season = "Fall";
+      break;
+
+    default:
+      season = "Please enter a valid month";
+  }
+
+  return season;
+}
+
+console.log(determineSeason(2));
+console.log(determineSeason(4));
+console.log(determineSeason(13));
+console.log(determineSeason(8));
+
+//
