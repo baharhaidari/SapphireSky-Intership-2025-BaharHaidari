@@ -807,3 +807,116 @@ console.log(isPalindrome("hello"));
 console.log(isPalindrome("racecar"));
 
 //
+
+// Generate Pascal’s Triangle
+// Implement pascalTriangle(rows), which prints Pascal’s Triangle up to rows rows.
+
+function pascalTriangle(rows) {
+  let triangle = [];
+
+  for (let row = 0; row < rows; row++) {
+    let currentRow = [];
+
+    for (let col = 0; col <= row; col++) {
+      if (col === 0 || col === row) {
+        currentRow.push(1);
+      } else {
+        currentRow.push(triangle[row - 1][col - 1] + triangle[row - 1][col]);
+      }
+    }
+
+    triangle.push(currentRow);
+  }
+
+  // Find the maximum length of the last row for centering
+  let maxLength = triangle[rows - 1].join(" ").length;
+
+  // Print the triangle with centering
+  for (let i = 0; i < rows; i++) {
+    let rowStr = triangle[i].join(" ");
+    let padding = " ".repeat((maxLength - rowStr.length) / 2);
+    console.log(padding + rowStr);
+  }
+}
+
+pascalTriangle(5);
+
+// Switch-Case Section
+
+// Day of the Week
+// Write a program that takes an integer (1-7) as input.
+// Use switch to print the corresponding day of the week.
+// 1 → "Monday"
+// 2 → "Tuesday"
+// 7 → "Sunday"
+
+function daysOfWeek(n) {
+  let day;
+
+  switch (n) {
+    case 1:
+      day = "Saturay";
+      break;
+    case 2:
+      day = "Sunday";
+      break;
+    case 3:
+      day = "Monday";
+      break;
+    case 4:
+      day = "Tuesday";
+      break;
+    case 5:
+      day = "Wednesday";
+      break;
+    case 6:
+      day = "Thursday";
+      break;
+    default:
+      day = "Friday";
+  }
+
+  return day;
+}
+
+console.log(daysOfWeek(2));
+console.log(daysOfWeek(5));
+
+//
+
+// Simple Calculator
+// Take two numbers and an operator (+, -, *, /).
+// Use switch to perform the correct operation and return the result.
+
+function calculator(num1, num2, operator) {
+  let result = 0;
+
+  switch (operator) {
+    case "+":
+      result = num1 + num2;
+      break;
+
+    case "-":
+      result = num1 - num2;
+      break;
+
+    case "/":
+      result = num1 / num2;
+      break;
+
+    case "*":
+      result = num1 * num2;
+      break;
+
+    default:
+      result = "Invalid Operator";
+      break;
+  }
+
+  return result;
+}
+
+console.log(calculator(4, 2, "+"));
+console.log(calculator(4, 2, "-"));
+console.log(calculator(4, 2, "/"));
+console.log(calculator(4, 2, "*"));

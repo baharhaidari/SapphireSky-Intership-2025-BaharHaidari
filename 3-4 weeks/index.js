@@ -266,9 +266,24 @@ console.log(findMissingNumbers([1, 3, 4, 6, 7, 8], 8));
 
 // How do you check if two arrays are equal?
 
+function sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
+  return arr;
+}
+
 function areArraysEqual(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
+  let firstArr = sort(arr1);
+  let secondArr = sort(arr2);
+
+  for (let i = 0; i < firstArr.length; i++) {
+    if (firstArr[i] !== secondArr[i]) {
       return false;
     }
   }
@@ -276,7 +291,7 @@ function areArraysEqual(arr1, arr2) {
   return true;
 }
 
-console.log(areArraysEqual([1, 2, 3], [1, 2, 3]));
+console.log(areArraysEqual([1, 2, 3], [1, 3, 2]));
 console.log(areArraysEqual(["a", "b", "c"], ["a", "b", "c"]));
 console.log(areArraysEqual([1, 2, 3], [3, 2, 1]));
 console.log(areArraysEqual([1, 2, 3], [1, 2, 4, 5]));
