@@ -1163,3 +1163,219 @@ console.log(determineSeason(13));
 console.log(determineSeason(8));
 
 //
+
+// Rock, Paper, Scissors Game
+// The user inputs "rock", "paper", or "scissors".
+// The computer randomly selects one.
+// Use switch to determine the winner.
+
+function playGame(userChoice) {
+  const choices = ["rock", "paper", "scissors"];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+  if (userChoice === computerChoice) {
+    console.log("It's a tie!");
+    return;
+  }
+
+  switch (userChoice) {
+    case "rock":
+      console.log(computerChoice === "scissors" ? "You win!" : "You lose!");
+      break;
+    case "paper":
+      console.log(computerChoice === "rock" ? "You win!" : "You lose!");
+      break;
+    case "scissors":
+      console.log(computerChoice === "paper" ? "You win!" : "You lose!");
+      break;
+  }
+}
+
+playGame("rock");
+
+//
+
+// Roman Numeral Converter
+// Take an integer (1-10) as input.
+// Use switch to print the corresponding Roman numeral.
+
+function getRomanNumeral(num) {
+  switch (num) {
+    case 1:
+      return "I";
+    case 2:
+      return "II";
+    case 3:
+      return "III";
+    case 4:
+      return "IV";
+    case 5:
+      return "V";
+    case 6:
+      return "VI";
+    case 7:
+      return "VII";
+    case 8:
+      return "VIII";
+    case 9:
+      return "IX";
+    case 10:
+      return "X";
+    default:
+      return "Inavlid input, try between 1-10";
+  }
+}
+
+console.log(getRomanNumeral(3));
+
+//
+
+// Zodiac Sign Finder
+// Take a birth month and day.
+// Use switch to determine the person's zodiac sign.
+
+function zodiacSignFinder(month, day) {
+  switch (month) {
+    case "january":
+      return day <= 19 ? "Capricorn" : "Aquarius";
+
+    case "february":
+      return day <= 18 ? "Aquarius" : "Pisces";
+
+    case "march":
+      return day <= 20 ? "Pisces" : "Aries";
+
+    case "april":
+      return day <= 19 ? "Aries" : "Taurus";
+
+    case "may":
+      return day <= 20 ? "Taurus" : "Gemini";
+
+    case "june":
+      return day <= 20 ? "Gemini" : "Cancer";
+
+    case "july":
+      return day <= 22 ? "Cancer" : "Leo";
+
+    case "august":
+      return day <= 22 ? "Leo" : "Virgo";
+
+    case "september":
+      return day <= 22 ? "Virgo" : "Libra";
+
+    case "october":
+      return day <= 22 ? "Libra" : "Scorpio";
+
+    case "november":
+      return day <= 21 ? "Scorpio" : "Sagittarius";
+
+    case "december":
+      return day <= 21 ? "Sagittarius" : "Capricorn";
+
+    default:
+      return "Invalid month! Please enter a valid month.";
+  }
+}
+
+console.log(zodiacSignFinder("March", 15));
+console.log(zodiacSignFinder("October", 25));
+console.log(zodiacSignFinder("July", 5));
+
+//
+
+// Discount System Based on Membership
+// Input membership type ("Gold", "Silver", "Bronze").
+// Use switch to apply different discount rates on a purchase.
+
+function discountSystem(membership) {
+  let purchase = 1000;
+  let discountRate = 0;
+
+  switch (membership) {
+    case "gold":
+      discountRate = 0.2;
+      break;
+
+    case "silver":
+      discountRate = 0.15;
+      break;
+
+    case "bronze":
+      discountRate = 0.1;
+      break;
+
+    default:
+      console.log("Wrong Membership, no discount applied");
+  }
+
+  const discountAmount = purchase * discountRate;
+  const finalPrice = purchase - discountAmount;
+
+  return { discountAmount, discountRate, finalPrice };
+}
+
+console.log(discountSystem("gold"));
+console.log(discountSystem("silver"));
+console.log(discountSystem("Platinum"));
+
+//
+
+// Automated Toll Booth System
+// Take a vehicle type ("Car", "Truck", "Bike") as input.
+// Use switch to determine the toll fee.
+
+function automatedTollBooth(vehicle) {
+  let tollFee;
+
+  switch (vehicle) {
+    case "car":
+      tollFee = "$80";
+      break;
+
+    case "truck":
+      tollFee = "$60";
+      break;
+
+    case "bike":
+      tollFee = "$30";
+      break;
+
+    default:
+      tollFee = "Invalid vehicle type";
+  }
+
+  return tollFee;
+}
+
+console.log(automatedTollBooth("car"));
+console.log(automatedTollBooth("bike"));
+console.log(automatedTollBooth("bus"));
+
+//
+
+// Music Playlist Controller
+// Take a command ("Play", "Pause", "Next", "Previous").
+// Use switch to perform the correct action.
+
+function musicPlaylistController(command) {
+  switch (command) {
+    case "play":
+      return "Play music";
+
+    case "pause":
+      return "Pause music";
+
+    case "next":
+      return "Play next music";
+
+    case "previous":
+      return "Play previous music";
+
+    default:
+      return "Invalid command";
+  }
+}
+
+console.log(musicPlaylistController("play"));
+console.log(musicPlaylistController("next"));
+console.log(musicPlaylistController("loop"));
