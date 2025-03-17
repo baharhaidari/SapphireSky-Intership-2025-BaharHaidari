@@ -1277,9 +1277,9 @@ function zodiacSignFinder(month, day) {
   }
 }
 
-console.log(zodiacSignFinder("March", 15));
-console.log(zodiacSignFinder("October", 25));
-console.log(zodiacSignFinder("July", 5));
+console.log(zodiacSignFinder("march", 15));
+console.log(zodiacSignFinder("october", 25));
+console.log(zodiacSignFinder("july", 5));
 
 //
 
